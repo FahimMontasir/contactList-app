@@ -1,12 +1,8 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {Text, View, StatusBar} from 'react-native';
+import AppNavigation from './src/navigations';
 
 const App = () => {
-  return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
-      <StatusBar barStyle="light-content" backgroundColor="tomato" />
-      <Text>hello world war 3</Text>
-    </View>
-  );
+  return <AppNavigation />;
 };
 export default App;
