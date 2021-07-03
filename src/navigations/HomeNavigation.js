@@ -1,22 +1,26 @@
 import React from 'react';
-import {Text} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
+import {
+  CONTACT_DETAILS,
+  CONTACT_LIST,
+  CREATE_CONTACT,
+  SETTINGS,
+} from '../constants/routeName';
+import ContactList from '../screens/contactList';
+import ContactDetails from '../screens/contactDetails';
+import CreateContact from '../screens/createContact';
+import Settings from '../screens/settings';
 
-const Contact = () => <Text>im in contact</Text>;
-const ContactList = () => <Text>im in contactList</Text>;
-const CreateContact = () => <Text>im in Create contact</Text>;
-const Settings = () => <Text>im in Create setting</Text>;
-
-const Stack = createStackNavigator();
+const Home = createStackNavigator();
 
 const HomeNavigation = props => {
   return (
-    <Stack.Navigator initialRouteName="contact">
-      <Stack.Screen name="contact" component={Contact} />
-      <Stack.Screen name="contactList" component={ContactList} />
-      <Stack.Screen name="createContact" component={CreateContact} />
-      <Stack.Screen name="settings" component={Settings} />
-    </Stack.Navigator>
+    <Home.Navigator initialRouteName={CONTACT_LIST}>
+      <Home.Screen name={CONTACT_LIST} component={ContactList} />
+      <Home.Screen name={CONTACT_DETAILS} component={ContactDetails} />
+      <Home.Screen name={CREATE_CONTACT} component={CreateContact} />
+      <Home.Screen name={SETTINGS} component={Settings} />
+    </Home.Navigator>
   );
 };
 export default HomeNavigation;

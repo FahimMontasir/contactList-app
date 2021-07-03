@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import DrawerNavigation from './DrawerNavigation';
 import {StatusBar} from 'react-native';
-DrawerNavigation;
+import AuthNavigation from './AuthNavigation';
+import {GlobalContext} from '../context/reducer/Provider';
+
 const AppNavigation = () => {
+  const {
+    authState: {isLoggedIn},
+  } = useContext(GlobalContext);
+
   return (
     <NavigationContainer>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
-      <DrawerNavigation />
+      {isLoggedIn ? <DrawerNavigation /> : <AuthNavigation />}
     </NavigationContainer>
   );
 };
